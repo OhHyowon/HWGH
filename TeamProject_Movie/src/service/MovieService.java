@@ -59,6 +59,6 @@ public interface MovieService {
 	 * @return 조회한 영화 평점평균을 리턴(소숫점 X째자리까지). 단 찾는 ID의 영화의 평점이 등록되어 있지않으면 null을 리턴.
 	 * @throws SQLException
 	 */
-	double movieAverageScore(int movieId) throws SQLException;
+	double movieAvgScore(int movieId) throws SQLException;
 
 }

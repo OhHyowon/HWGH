@@ -45,7 +45,7 @@ public class MovieDaoImpl implements MovieDao{
 		return null;
 	}
 	@Override
-	public double movieAverageScore(SqlSession session, int movieId) throws SQLException {
+	public double movieAvgScore(SqlSession session, int movieId) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
