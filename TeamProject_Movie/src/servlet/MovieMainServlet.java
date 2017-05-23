@@ -30,16 +30,16 @@ public class MovieMainServlet extends HttpServlet {
 		Movie movie5=test.findMovieById(5);
 		
 		//1. 요청파라미터 조회+검증
-		HttpSession session = req.getSession();
+		//HttpSession session = req.getSession();
 		//2. 비즈니스로직 처리
 		
 		//3. 처리결과 응답
 		//System.out.println(movie1);
-		session.setAttribute("movie1", movie1);
-		session.setAttribute("movie2", movie2);
-		session.setAttribute("movie3", movie3);
-		session.setAttribute("movie4", movie4);
-		session.setAttribute("movie5", movie5);
+		req.setAttribute("movie1", movie1);
+		req.setAttribute("movie2", movie2);
+		req.setAttribute("movie3", movie3);
+		req.setAttribute("movie4", movie4);
+		req.setAttribute("movie5", movie5);
 		
 		req.getRequestDispatcher("/main/recommand.jsp").forward(req,resp);
 		}catch(SQLException e){

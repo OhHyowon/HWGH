@@ -29,6 +29,15 @@
 <url-pattern>/detailServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>movie search servlet</servlet-name>
+<servlet-class>servlet.MovieSearchServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>movie search servlet</servlet-name>
+<url-pattern>/searchServlet</url-pattern>
+</servlet-mapping>
+
 
 </web-app>
 
