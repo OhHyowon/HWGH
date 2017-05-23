@@ -19,6 +19,18 @@
 제목 : <%=((Movie) session.getAttribute("movie5")).getMovieTitle() %><br>
 이미지 : <img src="<%=((Movie) session.getAttribute("movie5")).getMovieImage() %>" width="50px"><br>
 
+<form action="/TeamProject_Movie/detailServlet" method="post">
+제목 : <input type="submit" value="<%=((Movie) session.getAttribute("movie1")).getMovieTitle() %>"><br>
+이미지 : <input type="hidden" src="<%=((Movie) session.getAttribute("movie1")).getMovieImage() %>" width="50px" name="selectMovie" value="movie1"><br>
+제목 : <%=((Movie) session.getAttribute("movie2")).getMovieTitle() %><br>
+이미지 :<input type="image" src="<%=((Movie) session.getAttribute("movie1")).getMovieImage() %>" width="50px"><br>
+제목 : <%=((Movie) session.getAttribute("movie3")).getMovieTitle() %><br>
+이미지 : <input type="image" src="<%=((Movie) session.getAttribute("movie1")).getMovieImage() %>" width="50px"><br>
+제목 : <%=((Movie) session.getAttribute("movie4")).getMovieTitle() %><br>
+이미지 : <input type="image" src="<%=((Movie) session.getAttribute("movie1")).getMovieImage() %>" width="50px"><br>
+제목 : <%=((Movie) session.getAttribute("movie5")).getMovieTitle() %><br>
+이미지 : <input type="image" src="<%=((Movie) session.getAttribute("movie1")).getMovieImage() %>" width="50px"><br>
+</form>
 
 </body>
 </html>

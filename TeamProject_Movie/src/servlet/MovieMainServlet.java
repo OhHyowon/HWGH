@@ -20,7 +20,7 @@ public class MovieMainServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("mainServlet doGet실행");
+		//System.out.println("mainServlet doGet실행");
 		try{
 		MovieService test=MovieServiceImpl.getInstance();
 		Movie movie1=test.findMovieById(1);
@@ -34,7 +34,7 @@ public class MovieMainServlet extends HttpServlet {
 		//2. 비즈니스로직 처리
 		
 		//3. 처리결과 응답
-		System.out.println(movie1);
+		//System.out.println(movie1);
 		session.setAttribute("movie1", movie1);
 		session.setAttribute("movie2", movie2);
 		session.setAttribute("movie3", movie3);
