@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import vo.Movie;
 
 public interface MovieDao {
@@ -20,7 +22,7 @@ public interface MovieDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	List<Movie> selectAllMovie(Connection conn) throws SQLException;
+	List<Movie> selectAllMovie(SqlSession session) throws SQLException;
 	
 	/**
 	 * 매개변수로 받은 영화ID와 일치하는 영화정보를 영화 테이블에서 조회하는 메소드
@@ -29,44 +31,48 @@ public interface MovieDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	Movie selectMovieById(Connection conn, int movieId) throws SQLException;
+	Movie selectMovieById(SqlSession session, int movieId) throws SQLException;
 
 	/**
 	 * 매개변수로 받은 영화제목과 일치하는 영화정보를 조회하는 메소드.
 	 *  이름은 부분일치로 조회한다.
+	 *  조회되는 column : movieId, movieTitle, movieImage
 	 * @param conn
 	 * @param movieTitle
 	 * @return
 	 * @throws SQLException
 	 */
-	List<Movie> selectMovieByName(Connection conn, String movieTitle) throws SQLException;
+	List<Movie> selectMovieByName(SqlSession session, String movieTitle) throws SQLException;
 	
 	/**
 	 * 매개변수로 받은 영화장르와 일치하는 영화정보를 조회하는 메소드.
 	 * 장르는 부분일치로 조회한다.
+	 * 조회되는 column : movieId, movieTitle, movieImage
 	 * @param conn
 	 * @param movieGenre
 	 * @return
 	 * @throws SQLException
 	 */
-	List<Movie> selectMovieByGenre(Connection conn, String movieGenre) throws SQLException;
+	List<Movie> selectMovieByGenre(SqlSession session, String movieGenre) throws SQLException;
 	
 	/**
 	 * 매개변수로 받은 영화개봉년도와 일치하는 영화정보를 조회하는 메소드.
+	 * 조회되는 column : movieId, movieTitle, movieImage
 	 * @param conn
 	 * @param movieDate
 	 * @return
 	 * @throws SQLException
 	 */
-	List<Movie> selectMovieByDate(Connection conn, int movieDate) throws SQLException;
+	List<Movie> selectMovieByDate(SqlSession session, int movieDate) throws SQLException;
 	
 	/**
 	 * 매개변수로 받은 영화ID와 일치하는 평균평점을 조회하는 메소드.
+	 * 조회되는 column : movieId, avgScore
 	 * @param conn
 	 * @param movieId
 	 * @return
 	 * @throws SQLException
 	 */
-	double movieAverageScore(Connection conn, int movieId) throws SQLException;
+	double movieAverageScore(SqlSession session, int movieId) throws SQLException;
 
 }
