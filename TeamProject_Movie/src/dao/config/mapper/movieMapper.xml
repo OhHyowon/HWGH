@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+/**
+설명
+작성자 :  김경혜,오효원
+최초 작성일 : 2017.05.23
+**평균평점 수정필요.
+변경이력
+xxx 며칠날 수정
+*/
+ -->
 <mapper namespace="dao.config.mapper.movieMapper">
 	<sql id="select-all-sql">
 		SELECT movie_id,
@@ -47,13 +57,27 @@
 	</select>
 
 	<!-- 이름으로 조회 -->
-	<select id="selectMovieByName" parameterType="string" resultMap="movie-resultmap">
-
+	<select id="selectMovieByName" parameterType="string"
+		resultMap="movie-part-resultmap">
+		<include refid="select-part-sql" />
+		WHERE movie_title LIKE '%'||#{value}||'%'
 	</select>
 
 	<!-- 장르로 조회 -->
+	<select id="selectMovieByGenre" parameterType="string"
+		resultMap="movie-part-resultmap">
+		<include refid="select-part-sql" />
+		WHERE movie_genre LIKE '%'||#{value}||'%' 
+	</select>
 
 	<!-- 개봉년도로 조회 -->
+	<select id="selectMovieByDate" parameterType="_int" resultMap="movie-part-resultmap">
+	<include refid="select-part-sql"/>
+	WHERE movie_date=#{value}
+	</select>
 
-	<!-- 평균평점 조회 -->
+	<!-- 평균평점 조회 --> <!-- 수정 필요 -->
+	<select id="movieAvgScore" parameterType="_int" resultMap="movie-resultmap">
+	</select>
+	
 </mapper>

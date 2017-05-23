@@ -1,4 +1,13 @@
 
+/**
+설명
+작성자 : 오효원
+최초 작성일 : 2017.05.23
+**평균평점 수정필요.
+변경이력
+xxx 며칠날 수정
+*/
+
 package dao.impl;
 
 import java.sql.Connection;
@@ -20,34 +29,33 @@ public class MovieDaoImpl implements MovieDao{
 		}
 		return instance;
 	}
+	
+	private String makeSqlId(String id){
+		return "dao.config.mapper.movieMapper."+id;
+	}
 	@Override
 	public List<Movie> selectAllMovie(SqlSession session) throws SQLException {
-		return null;
+		return session.selectList(makeSqlId("selectAllMovie"));
 	}
 	@Override
 	public Movie selectMovieById(SqlSession session, int movieId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne(makeSqlId("selectMovieById"),movieId);
 	}
 	@Override
 	public List<Movie> selectMovieByName(SqlSession session, String movieTitle) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(makeSqlId("selectMovieByName"),movieTitle);
 	}
 	@Override
 	public List<Movie> selectMovieByGenre(SqlSession session, String movieGenre) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(makeSqlId("selectMovieByGenre"),movieGenre);
 	}
 	@Override
 	public List<Movie> selectMovieByDate(SqlSession session, int movieDate) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(makeSqlId("selectMovieByDate"),movieDate);
 	}
 	@Override
 	public double movieAvgScore(SqlSession session, int movieId) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.selectOne(makeSqlId("movieAvgScore"),movieId);
 	}
 
 }

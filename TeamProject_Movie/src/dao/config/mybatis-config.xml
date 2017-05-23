@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!-- 
+/**
+설명
+작성자 :  김경혜,오효원
+최초 작성일 : 2017.05.23
+변경이력
+xxx 며칠날 수정
+*/
+ -->
 <configuration>
 	<settings>
 		<!-- null값 생성. -->

@@ -19,7 +19,7 @@ public class SqlSessionFactoryManager {
 	
 	private SqlSessionFactoryManager() throws IOException{
 		InputStream in = 
-								Resources.getResourceAsStream("hr/dao/config/mybatis-config.xml");
+								Resources.getResourceAsStream("dao/config/mybatis-config.xml");
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 		factory = builder.build(in);//전역설정파일의 inputStream으로 넣어서 SqlSessionFactory생성
 	
