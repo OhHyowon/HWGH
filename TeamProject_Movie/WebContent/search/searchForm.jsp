@@ -12,7 +12,7 @@
 	<label for="title">영화 제목 : </label><input type="radio" name="searchField" value="searchByTitle" id="title" checked="true">
 	<label for="genre">영화 장르 : </label><input type="radio" name="searchField" value="searchByGenre" id="genre">
 	<label for="date">개봉년도 : </label><input type="radio" name="searchField" value="searchByDate" id="date">
-	<br>검색어 : <input type="text" name="search"><br>	
+	<br>검색어 : <input type="text" name="searchText"><br>	
 	<input type="submit" value="검색">   		<input type="reset" value="내용 지우기">
 	</form>
 </body>
