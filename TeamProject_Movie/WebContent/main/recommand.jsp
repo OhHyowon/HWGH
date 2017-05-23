@@ -5,31 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-table, th, td {
-	text-align:center;
-	}
-table {
-	width:100%;
-	margin-top:30px;
-	}
-th, td {
-	width:250px;
-	}
-a {
-	font-size:25px;
-	color:black;
-	text-decoration:none;
-}
-a:hover {
-	color:blue;
-}
-a:active {
-	color:red;
-}
-</style>
 </head>
 <body>
+<jsp:include page="/layout.jsp"/>
 <h1 align="center">top5</h1>
 <hr>
 	<table align="center">
