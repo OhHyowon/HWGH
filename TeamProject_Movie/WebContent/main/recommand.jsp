@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/layout.jsp"/>
 <h1 align="center">top5</h1>
-<hr>
+<hr> 
 	<table align="center">
 		<tr>
 			<th><a href="/TeamProject_Movie/detailServlet?movie=<%=((Movie) request.getAttribute("movie1")).getMovieId() %>">
