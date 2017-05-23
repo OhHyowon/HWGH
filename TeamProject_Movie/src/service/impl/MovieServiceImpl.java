@@ -31,7 +31,7 @@ public class MovieServiceImpl implements MovieService {
 		factory = ssfm.getSqlSessionFactory();
 	}
 
-	private static MovieService getInstance() throws IOException {
+	public static MovieService getInstance() throws IOException {
 		if (instance == null) {
 			instance = new MovieServiceImpl();
 		}
