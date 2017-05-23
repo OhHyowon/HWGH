@@ -20,6 +20,15 @@
 <url-pattern>/mainServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>movie detail servlet</servlet-name>
+<servlet-class>servlet.MovieDetailServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>movie detail servlet</servlet-name>
+<url-pattern>/detailServlet</url-pattern>
+</servlet-mapping>
+
 
 </web-app>
 
