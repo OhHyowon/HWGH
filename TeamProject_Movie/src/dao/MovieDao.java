@@ -73,6 +73,6 @@ public interface MovieDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	double movieAverageScore(SqlSession session, int movieId) throws SQLException;
+	double movieAvgScore(SqlSession session, int movieId) throws SQLException;
 
 }

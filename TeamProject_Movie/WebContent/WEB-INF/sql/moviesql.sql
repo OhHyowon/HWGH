@@ -62,12 +62,7 @@ WHERE movie_id=1
 --List<Movie> selectMovieByName(Connection conn, String movieTitle) throws SQLException;
 SELECT movie_id,
 	movie_title,
-	movie_genre,
-	movie_director,
-	movie_actor,
-	movie_date,
-	movie_image,
-	movie_video
+	movie_image
 FROM movie
 WHERE movie_title like '%킹스맨%'
 
@@ -75,12 +70,7 @@ WHERE movie_title like '%킹스맨%'
 --List<Movie> selectMovieByGenre(Connection conn, String movieGenre) throws SQLException;
 SELECT movie_id,
 	movie_title,
-	movie_genre,
-	movie_director,
-	movie_actor,
-	movie_date,
-	movie_image,
-	movie_video
+	movie_image
 FROM movie
 WHERE movie_genre like '%액션%'
 
@@ -88,12 +78,7 @@ WHERE movie_genre like '%액션%'
 --List<Movie> selectMovieByDate(Connection conn, int movieDate) throws SQLException;
 SELECT movie_id,
 	movie_title,
-	movie_genre,
-	movie_director,
-	movie_actor,
-	movie_date,
-	movie_image,
-	movie_video
+	movie_image
 FROM movie
 WHERE movie_date=2016
 
