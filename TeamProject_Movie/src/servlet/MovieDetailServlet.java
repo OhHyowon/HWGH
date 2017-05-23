@@ -1,3 +1,10 @@
+/**
+설명
+작성자 :  김경혜,오효원
+최초 작성일 : 2017.05.23
+변경이력
+xxx 며칠날 수정
+*/
 package servlet;
 
 import java.io.IOException;

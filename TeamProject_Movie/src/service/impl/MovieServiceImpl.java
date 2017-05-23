@@ -5,7 +5,7 @@
 최초 작성일 : 2017.05.23
 **평균평점 수정필요.
 변경이력
-xxx 며칠날 수정
+
 */
 package service.impl;
 
@@ -64,7 +64,7 @@ public class MovieServiceImpl implements MovieService {
 	public Movie findMovieById(int movieId) throws SQLException {
 		SqlSession session = null;
 		
-		try {
+		try { 
 			session = factory.openSession();
 			movie = dao.selectMovieById(session, movieId);
 			session.commit();
