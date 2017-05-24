@@ -61,7 +61,7 @@ public class MovieSearchServlet extends HttpServlet {
 			System.out.println(resultMovieList);
 			resp.setContentType("text/html;charset=UTF-8");
 			req.setAttribute("resultMovieList", resultMovieList);
-			req.getRequestDispatcher("/search/searchResult.jsp").forward(req, resp);
+			req.getRequestDispatcher("/movieJsp/search/searchResult.jsp").forward(req, resp);
 
 		} catch (SQLException e) {
 			System.out.println("SQLException");

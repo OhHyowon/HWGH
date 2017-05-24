@@ -9,7 +9,7 @@ xxx 며칠날 수정
 */
 package service;
 
-import java.sql.Connection;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -62,5 +62,12 @@ public interface MovieService {
 	 * @throws SQLException
 	 */
 //	Movie movieAvgScore(int movieId) throws SQLException;
+
+	/**
+	 * 평균평점 높은순으로 top5 영화 가져옴.
+	 * @return
+	 * @throws SQLException
+	 */
+	List<Movie> top5Movie() throws SQLException, IOException;
 
 }

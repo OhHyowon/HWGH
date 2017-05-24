@@ -35,7 +35,7 @@ public class MovieDetailServlet extends HttpServlet{
 		// 3.처리결과응답.
 		
 		req.setAttribute("movieDetail", movieDetail);
-		req.getRequestDispatcher("/main/detail.jsp").forward(req, resp);
+		req.getRequestDispatcher("movieJsp/main/detail.jsp").forward(req, resp);
 		}catch(SQLException e){
 			System.out.println("SQLException");
 		}

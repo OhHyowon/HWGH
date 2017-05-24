@@ -13,6 +13,7 @@ package service.impl;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -120,6 +121,18 @@ public class MovieServiceImpl implements MovieService {
 		} finally {
 			session.close();
 		}
+		
+		return movieList;
+	}
+
+	@Override
+	public List<Movie> top5Movie() throws SQLException,IOException {
+		movieList=MovieServiceImpl.getInstance().getMovieList();
+		ArrayList<Double> avgScore=new ArrayList<>();
+		for(Movie movie:movieList){
+			avgScore.add(movie.getMovieAvgScore());
+		}
+		System.out.println(avgScore);
 		
 		return movieList;
 	}

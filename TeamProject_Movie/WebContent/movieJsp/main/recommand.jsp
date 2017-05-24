@@ -28,7 +28,7 @@
 		</tr>
 	</table>
 	<p>
-		<a href="/TeamProject_Movie/search/searchForm.jsp">검색</a>
+		<a href="/TeamProject_Movie/movieJsp/search/searchForm.jsp">검색</a>
 	</p>
 </body>
 </html>
