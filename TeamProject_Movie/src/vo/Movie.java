@@ -3,6 +3,7 @@
 작성자 :  김경혜
 최초 작성일 : 2017.05.23
 변경이력
+-movieAvgScore 변수추가
 xxx 며칠날 수정
 */
 
@@ -11,14 +12,20 @@ package vo;
 import java.io.Serializable;
 
 public class Movie implements Serializable {
-	int movieId;
-	String movieTitle;
-	String movieGenre;
-	String movieDirector;
-	String movieActor;
-	int movieDate;// 개봉년도- int
-	String movieImage;
-	String movieVideo;
+	private int movieId;
+	private String movieTitle;
+	private String movieGenre;
+	private String movieDirector;
+	private 	String movieActor;
+	private 	int movieDate;// 개봉년도- int
+	private 	String movieImage;
+	private 	String movieVideo;
+	/****************************************
+	 * 부모테이블 : MOVIE, 자식테이블 : BOARD에서 파생된 테이블
+	 * 평균평점은 영화 하나에 소속되 있다.
+	 * 평균평점을 저장할 instance 변수 선언.
+	 ****************************************/
+	private double movieAvgScore;
 
 	public Movie() {
 	}

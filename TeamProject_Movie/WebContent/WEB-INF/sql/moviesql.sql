@@ -17,17 +17,24 @@ drop table board;
 create table board(
 	board_id number primary key,
 	board_score number not null,
-	b_movie_id number not null
+	movie_id number not null
 );
 
 insert into board values(1,2,1);
 insert into board values(2,4,1);
 insert into board values(3,3,2);
 insert into board values(4,5,1);
+insert into board values(5,2,3);
+insert into board values(6,5,3);
+insert into board values(7,5,4);
+insert into board values(8,1,5);
+insert into board values(9,3,5);
 
-select * from board order by b_movie_id;
-select b_movie_id, sum(board_score),count(board_score) from board group by b_movie_id;
-select b_movie_id, sum(board_score)/count(board_score) from board group by b_movie_id;
+
+
+select * from board order by movie_id;
+select movie_id, sum(board_score),count(board_score) from board group by movie_id;
+select movie_id, sum(board_score)/count(board_score) from board group by movie_id order by movie_id;
 
 
 
@@ -88,10 +95,10 @@ WHERE movie_date=2016
 --double movieAverageScore(Connection conn, int movieId) throws SQLException;
 SELECT m.movie_id, b.s/b.c 
 FROM movie m,(
-	SELECT b_movie_id, sum(board_score) s, count(board_score) c
+	SELECT movie_id, sum(board_score) s, count(board_score) c
 	FROM board 
-	GROUP BY b_movie_id) b 
-WHERE m.movie_id=b.b_movie_id(+)
+	GROUP BY movie_id) b 
+WHERE m.movie_id=b.movie_id(+)
 order by m.movie_id
 
 
