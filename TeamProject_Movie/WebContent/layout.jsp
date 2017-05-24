@@ -17,6 +17,7 @@ table, th, td {
 	text-align:center;
 }
 table {
+	
 	width:100%;
 	margin-top:30px;
 }
