@@ -17,13 +17,14 @@ table, th, td {
 	text-align:center;
 }
 table {
-	
 	width:100%;
 	margin-top:30px;
-}
-th, td {
-	width:250px;
+	table-layout:fixed;
 	font-size:25px;
+}
+td {
+	word-break:break-all;
+	padding:15px;
 }
 a {
 	color:black;

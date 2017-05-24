@@ -7,14 +7,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieId() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieTitle() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieGenre() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieDirector() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieActor() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieDate() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieImage() %>
-<%=((Movie) request.getAttribute("movieDetail")).getMovieVideo() %>
+	<jsp:include page="/layout.jsp" />
+	<section>
+		<table>
+			<tr>
+				<th colspan="5"><h1><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></h1></th>
+			</tr>
+			<tr>
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieGenre()%></td>
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDirector()%></td>
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieActor()%></td>
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDate()%></td>
+				<td>
+					<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:300px">
+				</td>
 
+			</tr>
+			<tr>
+				<td colspan="5">
+					<iframe width="860" height="480" src="<%=((Movie) request.getAttribute("movieDetail")).getMovieVideo()%>"></iframe>
+				</td>
+			</tr>
+		</table>
+	</section>
 </body>
 </html>

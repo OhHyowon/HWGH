@@ -28,7 +28,6 @@ public class MovieDetailServlet extends HttpServlet{
 		// 1.요청파라미터조회+검증
 		String movieId=req.getParameter("movie");
 		System.out.println(movieId);
-		
 
 		// 2.처리-비즈니스로직
 		Movie movieDetail=movieService.findMovieById(Integer.parseInt(movieId));

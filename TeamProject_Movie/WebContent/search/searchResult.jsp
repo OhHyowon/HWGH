@@ -10,12 +10,13 @@
 	<jsp:include page="/layout.jsp" />
 	<h1 align="center">검색결과조회4</h1>
 	<hr>
-	<table>
-		<tr>
-			<c:forEach var="resultMovie" items="${requestScope.resultMovieList }"
-				varStatus="loop">
-				<c:choose>
-					<c:when test="${loop.count%5==0 }">
+	<section>
+		<table>
+			<tr>
+				<c:forEach var="resultMovie"
+					items="${requestScope.resultMovieList }" varStatus="loop">
+					<c:choose>
+						<c:when test="${loop.count%5==0 }">
 							<td><a
 								href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">
 									<img src="${resultMovie.movieImage}" width="300px">
@@ -23,18 +24,18 @@
 								href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">${resultMovie.movieTitle}</a>
 							</td>
 							<tr>
-					</c:when>
-					<c:otherwise>
-						<td><a
-							href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">
-								<img src="${resultMovie.movieImage}" width="300px">
-						</a><br> <a
-							href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">${resultMovie.movieTitle}</a>
-						</td>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-	</table>
-
+						</c:when>
+						<c:otherwise>
+							<td><a
+								href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">
+									<img src="${resultMovie.movieImage}" width="300px">
+							</a><br> <a
+								href="/TeamProject_Movie/detailServlet?movie=${resultMovie.movieId }">${resultMovie.movieTitle}</a>
+							</td>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+		</table>
+	</section>
 </body>
 </html>
