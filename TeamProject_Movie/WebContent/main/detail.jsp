@@ -9,33 +9,35 @@
 <body>
 	<jsp:include page="/layout.jsp" />
 	<section>
-		<table>
+		<table style="width:66%;margin:30px auto auto auto;">
 			<tr>
-				<th colspan="5" style="font-size:45px"><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></th>
+				<th colspan="3" style="font-size:45px"><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></th>
+			</tr>
+			<tr>
+				<td style="width:15%;">장르</td>
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieGenre()%></td>
 				<td rowspan="5">
 					<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:300px">
 				</td>
 			</tr>
 			<tr>
-				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieGenre()%></td>
-			</tr>
-			<tr>
+				<td>감독</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDirector()%></td>
 			</tr>
-			<tr>	
+			<tr>
+				<td>배우</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieActor()%></td>
 			</tr>
-			<tr>	
+			<tr>
+				<td>개봉년도</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDate()%></td>
 			</tr>
-			<tr>	
+			<tr>
+				<td>평균 평점</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieAvgScore()%></td>
 			</tr>
-			
-
-			</tr>
 			<tr>
-				<td colspan="5">
+				<td colspan="3">
 					<iframe width="860" height="480" src="<%=((Movie) request.getAttribute("movieDetail")).getMovieVideo()%>"></iframe>
 				</td>
 			</tr>

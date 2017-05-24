@@ -11,7 +11,7 @@
 	<jsp:include page="/layout.jsp" />
 	<h1 align="center">top5</h1>
 	<hr>
-	<table style="align:center">
+	<table style="align:center;width:100%;">
 		<tr>
 			<c:forEach var="top5Movie" items="${requestScope.top5MovieList }">
 				<td><a
