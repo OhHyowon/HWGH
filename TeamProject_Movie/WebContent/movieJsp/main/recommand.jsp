@@ -16,7 +16,7 @@
 			<c:forEach var="top5Movie" items="${requestScope.top5MovieList }">
 				<td><a
 					href="/TeamProject_Movie/detailServlet?movie=${top5Movie.movieId }">
-						<img src="${top5Movie.movieImage}" width="300px">
+						<img src="${top5Movie.movieImage}" width="240px" height="344px">
 				</a></td>
 			</c:forEach>
 		</tr>
@@ -27,8 +27,5 @@
 			</c:forEach>
 		</tr>
 	</table>
-	<p>
-		<a href="/TeamProject_Movie/movieJsp/search/searchForm.jsp">검색</a>
-	</p>
 </body>
 </html>

@@ -7,22 +7,27 @@
 </head>
 <body>
 	<jsp:include page="/layout.jsp" />
-	<h1>영화 검색하기</h1>
-	<form action="/TeamProject_Movie/searchServlet" method="post">
-	<label for="title">영화 제목 : <input type="radio" name="searchField" value="searchByTitle" id="title" checked="true">
-	<input type="text" name="searchTextByTitle"></label><br>	
+	<h1 align=center>영화 검색하기</h1>
+	<div style="width:33%;margin:auto;">
+		<form action="/TeamProject_Movie/searchServlet" method="post">
+			<label for="title">영화 제목 : <input type="radio"
+				name="searchField" value="searchByTitle" id="title" checked="true">
+				<input type="text" name="searchTextByTitle"></label><br>
 	
-	<p>
-	<label for="genre">영화 장르 : <input type="radio" name="searchField" value="searchByGenre" id="genre">
-	<input type="text" name="searchTextByGenre"></label><br>
-	</p>	
+			<p>
+				<label for="genre">영화 장르 : <input type="radio"
+					name="searchField" value="searchByGenre" id="genre"> <input
+					type="text" name="searchTextByGenre"></label><br>
+			</p>
 	
-	<p>
-	<label for="date">개봉 년도 : </label><input type="radio" name="searchField" value="searchByDate" id="date">
-	<label for="date"><input type="number" name="searchNumByDate"></label><br>
-	</p>	
-	<p>
-	<input type="submit" value="검색">	<input type="reset" value="내용 지우기">
-	</form>
+			<p>
+				<label for="date">개봉 년도 : </label><input type="radio"
+					name="searchField" value="searchByDate" id="date"> <label
+					for="date"><input type="number" name="searchNumByDate" value="2015"></label><br>
+			</p>
+			<p>
+				<input type="submit" value="검색"> <input type="reset" value="내용 지우기">
+		</form>
+	</div>
 </body>
 </html>

@@ -11,13 +11,14 @@
 	<section>
 		<table style="width:66%;margin:30px auto auto auto;">
 			<tr>
-				<th colspan="3" style="font-size:45px"><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></th>
+				<th colspan="3" style="font-size:30px;padding:20px;"><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></th>
 			</tr>
 			<tr>
-				<td style="width:15%;">장르</td>
+				<td>장르</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieGenre()%></td>
 				<td rowspan="5">
-					<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:300px">
+					<a href="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" target="_blank">
+						<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:100px"></a>
 				</td>
 			</tr>
 			<tr>
@@ -36,12 +37,12 @@
 				<td>평균 평점</td>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieAvgScore()%></td>
 			</tr>
-			<tr>
-				<td colspan="3">
-					<iframe width="860" height="480" src="<%=((Movie) request.getAttribute("movieDetail")).getMovieVideo()%>"></iframe>
-				</td>
-			</tr>
 		</table>
+	</section>
+	<section>
+		<div style="width:600px;margin:30px auto;">
+			<iframe style="align:center" width="600" height="300" src="<%=((Movie) request.getAttribute("movieDetail")).getMovieVideo()%>"></iframe>
+		</div>
 	</section>
 </body>
 </html>

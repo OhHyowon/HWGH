@@ -23,12 +23,8 @@ table, th, td {
 table {
 	margin-top: 30px;
 	table-layout: fixed;
-	font-size: 25px;
-}
-
-td {
+	font-size: 15px;
 	word-break: break-all;
-	padding: 15px;
 }
 
 a {
@@ -53,7 +49,7 @@ ul {
 }
 
 li {
-	float: left;
+	float:left;
 }
 
 li a {
@@ -71,17 +67,16 @@ li a:hover {
 </style>
 </head>
 <body>
-
 	<nav>
 		<ul>
-			<li><a href="/TeamProject_Movie/index.jsp">메인화면</a></li>
-			<li><a href="/TeamProject_Movie/search/searchForm.jsp">영화 검색</a></li>
+		<li><a href="/TeamProject_Movie/index.jsp">메인화면</a></li>
+		<li><a href="/TeamProject_Movie/movieJsp/search/searchForm.jsp">영화 검색</a></li>
 			<c:choose>
 				<c:when test="${empty sessionScope.login }">
-					<li><a href="/TeamProject_Movie/index.jsp">로그인</a></li>
+					<li style="float:right"><a href="/TeamProject_Movie/index.jsp">로그인</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/TeamProject_Movie/index.jsp">로그아웃</a></li>
+					<li style="float:right"><a href="/TeamProject_Movie/index.jsp">로그아웃</a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>
