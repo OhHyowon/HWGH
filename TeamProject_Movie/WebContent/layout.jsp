@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,45 +7,84 @@
 <title>Insert title here</title>
 <style>
 #rightAlign {
-	text-align:right;
+	text-align: right;
 }
+
 body {
-	font-family:"굴림";
-	font-weight:bold;
+	align:center;
+	font-family: "굴림";
+	font-weight: bold;
 }
+
 table, th, td {
-	text-align:center;
+	text-align: center;
 }
+
 table {
-	width:100%;
-	margin-top:30px;
-	table-layout:fixed;
-	font-size:25px;
+	margin-top: 30px;
+	table-layout: fixed;
+	font-size: 25px;
 }
+
 td {
-	word-break:break-all;
-	padding:15px;
+	word-break: break-all;
+	padding: 15px;
 }
+
 a {
-	color:black;
-	text-decoration:none;
+	color: black;
+	text-decoration: none;
 }
+
 a:hover {
-	color:blue;
+	color: blue;
 }
+
 a:active {
-	color:red;
+	color: red;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #999;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 15px 15px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #666;
+	color: white;
 }
 </style>
 </head>
 <body>
-<c:choose>
-	<c:when test="${empty sessionScope.login }">
-		<a href="/TeamProject_Movie/index.jsp"><h1 id="rightAlign">로그인</h1></a>
-	</c:when>
-	<c:otherwise>
-		<a href="/TeamProject_Movie/index.jsp">로그아웃</a><br>
-	</c:otherwise>
-</c:choose>
+
+	<nav>
+		<ul>
+			<li><a href="/TeamProject_Movie/index.jsp">메인화면</a></li>
+			<li><a href="/TeamProject_Movie/search/searchForm.jsp">영화 검색</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.login }">
+					<li><a href="/TeamProject_Movie/index.jsp">로그인</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="/TeamProject_Movie/index.jsp">로그아웃</a></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</nav>
 </body>
 </html>

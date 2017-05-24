@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body style="align: center">
+<body style="align:center;">
 	<jsp:include page="/layout.jsp" />
-	<h1 align="center">검색결과조회4</h1>
+	<h1 align="center">검색 결과</h1>
 	<hr>
 	<section>
 		<table>
