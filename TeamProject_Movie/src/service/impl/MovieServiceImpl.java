@@ -5,7 +5,8 @@
 최초 작성일 : 2017.05.23
 **평균평점 수정필요.
 변경이력
--김경혜) movieAvgScore메소드 return 타입 변경) double -> Movie객체  : 2017.05.24수정
+-김경혜) movieAvgScore메소드 return 타입 변경) double -> Movie객체   : 2017.05.24수정
+-김경혜) movieAvgScore 메소드 삭제. findMovieById, getMovieList메소드 수정(평점평균 추가) : 2017.05.24 수정
 
 */
 package service.impl;
@@ -53,11 +54,13 @@ public class MovieServiceImpl implements MovieService {
 		try {
 			session = factory.openSession();
 			movieList = dao.selectAllMovie(session);
+			for(Movie movie:movieList){
+				movie.setMovieAvgScore(Math.round(movie.getMovieAvgScore()*10)/10.0);
+			}
 			session.commit();
 		} finally {
 			session.close();
 		}
-
 		return movieList;
 	}
 
@@ -68,6 +71,7 @@ public class MovieServiceImpl implements MovieService {
 		try { 
 			session = factory.openSession();
 			movie = dao.selectMovieById(session, movieId);
+			movie.setMovieAvgScore(Math.round(movie.getMovieAvgScore()*10)/10.0);
 			session.commit();
 		} finally {
 			session.close();
@@ -120,7 +124,7 @@ public class MovieServiceImpl implements MovieService {
 		return movieList;
 	}
 
-	@Override
+/*	@Override
 	public Movie movieAvgScore(int movieId) throws SQLException {
 		SqlSession session = null;
 		
@@ -137,6 +141,6 @@ public class MovieServiceImpl implements MovieService {
 		}
 		
 		return movie;
-	}
+	}*/
 
 }

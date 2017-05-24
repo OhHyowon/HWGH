@@ -54,7 +54,7 @@ public class MovieDaoImpl implements MovieDao{
 		return session.selectList(makeSqlId("selectMovieByDate"),movieDate);
 	}
 	@Override
-	public Movie movieAvgScore(SqlSession session, int movieId) throws SQLException {
+	public double movieAvgScore(SqlSession session, int movieId) throws SQLException {
 		return session.selectOne(makeSqlId("movieAvgScore"),movieId);
 	}
 

@@ -5,15 +5,20 @@
 	*/ -->
 <mapper namespace="dao.config.mapper.movieMapper">
 	<sql id="select-all-sql">
-		SELECT movie_id,
-		movie_title,
-		movie_genre,
-		movie_director,
-		movie_actor,
-		movie_date,
-		movie_image,
-		movie_video
-		FROM movie
+		SELECT m.movie_id,
+				m.movie_title,
+				m.movie_genre,
+				m.movie_director,
+				m.movie_actor,
+				m.movie_date,
+				m.movie_image,
+				m.movie_video,
+				b.movie_avg_score
+		FROM movie m,(
+			SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score
+			FROM board 
+			GROUP BY movie_id) b 
+		WHERE m.movie_id=b.movie_id(+)
 	</sql>
 	<sql id="select-part-sql">
 		SELECT movie_id,
@@ -31,10 +36,12 @@
 		<result column="movie_date" property="movieDate" />
 		<result column="movie_image" property="movieImage" />
 		<result column="movie_video" property="movieVideo" />
-	</resultMap>
-	<resultMap type="movie" id="movie-join-resultmap" extends="movie-resultmap">
 		<result column="movie_avg_score" property="movieAvgScore"/>
 	</resultMap>
+	<!-- avgScore용 -->
+<!-- 	<resultMap type="movie" id="movie-join-resultmap" extends="movie-resultmap"> -->
+<!-- 		<result column="movie_avg_score" property="movieAvgScore"/> -->
+<!-- 	</resultMap> -->
 	<resultMap type="movie" id="movie-part-resultmap">
 		<id column="movie_id" property="movieId" />
 		<result column="movie_title" property="movieTitle" />
@@ -49,7 +56,8 @@
 	<!-- id로 조회 -->
 	<select id="selectMovieById" parameterType="_int" resultMap="movie-resultmap">
 		<include refid="select-all-sql" />
-		WHERE movie_id=#{value}
+		 AND m.movie_id=#{value}
+		<!-- WHERE movie_id=#{value} -->
 	</select>
 
 	<!-- 이름으로 조회 -->
@@ -73,14 +81,23 @@
 		WHERE movie_date=#{value}
 	</select>
 
-	<!-- 평균평점 조회 --> <!-- 수정 필요 -->
-	<select id="movieAvgScore" parameterType="_int" resultMap="movie-join-resultmap">
-		SELECT m.movie_id, b.movie_avg_score
-		FROM movie m,(
-			SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score
-			FROM board 
-			GROUP BY movie_id) b 
-		WHERE m.movie_id=b.movie_id(+) AND m.movie_id=#{value}
-	</select>
-
+	<!-- 평균평점 조회 수정 필요-->
+<!-- 	<select id="movieAvgScore" parameterType="_int" resultMap="movie-join-resultmap"> -->
+<!-- 		SELECT b.movie_avg_score -->
+<!-- 		FROM movie m,( -->
+<!-- 			SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score -->
+<!-- 			FROM board  -->
+<!-- 			GROUP BY movie_id) b  -->
+<!-- 		WHERE m.movie_id=b.movie_id(+) AND m.movie_id=#{value} -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="movieAvgScore" parameterType="_int" resultMap="movie-join-resultmap"> -->
+<!-- 		SELECT b.movie_avg_score -->
+<!-- 		FROM movie m,( -->
+<!-- 			SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score -->
+<!-- 			FROM board  -->
+<!-- 			GROUP BY movie_id) b  -->
+<!-- 		WHERE m.movie_id=b.movie_id(+) AND m.movie_id=#{value} -->
+<!-- 	</select> -->
+ 
 </mapper>
