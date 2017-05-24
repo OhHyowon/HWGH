@@ -11,16 +11,24 @@
 	<section>
 		<table>
 			<tr>
-				<th colspan="5"><h1><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></h1></th>
+				<th colspan="5" style="font-size:45px"><%=((Movie) request.getAttribute("movieDetail")).getMovieTitle()%></th>
+				<td rowspan="5">
+					<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:300px">
+				</td>
 			</tr>
 			<tr>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieGenre()%></td>
+			</tr>
+			<tr>
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDirector()%></td>
+			</tr>
+			<tr>	
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieActor()%></td>
+			</tr>
+			<tr>	
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDate()%></td>
-				<td>
-					<img src="<%=((Movie) request.getAttribute("movieDetail")).getMovieImage()%>" style="width:300px">
-				</td>
+			</tr>
+			
 
 			</tr>
 			<tr>
