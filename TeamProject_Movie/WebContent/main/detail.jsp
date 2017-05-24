@@ -28,6 +28,9 @@
 			<tr>	
 				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieDate()%></td>
 			</tr>
+			<tr>	
+				<td><%=((Movie) request.getAttribute("movieDetail")).getMovieAvgScore()%></td>
+			</tr>
 			
 
 			</tr>
