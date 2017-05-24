@@ -14,7 +14,12 @@ package service.impl;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -125,14 +130,37 @@ public class MovieServiceImpl implements MovieService {
 		return movieList;
 	}
 
+	//수정필요
 	@Override
 	public List<Movie> top5Movie() throws SQLException,IOException {
 		movieList=MovieServiceImpl.getInstance().getMovieList();
-		ArrayList<Double> avgScore=new ArrayList<>();
-		for(Movie movie:movieList){
-			avgScore.add(movie.getMovieAvgScore());
+		HashMap<Integer,Double> scoreMap=new HashMap();
+		ArrayList<Double> avgScoreList=new ArrayList<>();
+		
+/*		for(Movie movie : movieList){
+			scoreMap.put(movie.getMovieId(), movie.getMovieAvgScore());
+		}*/
+		for(Movie movie : movieList){
+			scoreMap.put(movie.getMovieId(),movie.getMovieAvgScore());
 		}
-		System.out.println(avgScore);
+		
+		//avgScore만 List생성
+		Set entries=scoreMap.entrySet();
+		for(Object e: entries ){
+			Entry entry=(Entry)e;
+			int movieId=(Integer)entry.getKey();
+			double avgScore=(Double)entry.getValue();
+			
+			avgScoreList.add(avgScore);
+		}
+		
+		//avgScoreList 내림차순정렬
+		Collections.sort(avgScoreList);//오름차순 정렬 후
+		Collections.reverse(avgScoreList);//순서 반대로 = 내림차순 정렬
+
+		System.out.println(avgScoreList);
+
+		//top 5 객체만 top5List생성.
 		
 		return movieList;
 	}
