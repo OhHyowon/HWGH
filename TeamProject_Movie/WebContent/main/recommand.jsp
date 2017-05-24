@@ -11,7 +11,7 @@
 	<jsp:include page="/layout.jsp" />
 	<h1 align="center">top5</h1>
 	<hr>
-	<table align="center">
+	<table style="align:center">
 		<tr>
 			<c:forEach var="top5Movie" items="${requestScope.top5MovieList }">
 				<td><a
@@ -26,9 +26,7 @@
 					href="/TeamProject_Movie/detailServlet?movie=${top5Movie.movieId }">${top5Movie.movieTitle}</a></td>
 			</c:forEach>
 		</tr>
-		
 	</table>
-
 	<p>
 		<a href="/TeamProject_Movie/search/searchForm.jsp">검색</a>
 	</p>

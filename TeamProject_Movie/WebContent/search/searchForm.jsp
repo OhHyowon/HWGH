@@ -6,9 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/layout.jsp" />
 	<h1>영화 검색하기</h1>
 	<form action="/TeamProject_Movie/searchServlet" method="post">
-	검색 방법 <br>
 	<label for="title">영화 제목 : <input type="radio" name="searchField" value="searchByTitle" id="title" checked="true">
 	<input type="text" name="searchTextByTitle"></label><br>	
 	
@@ -18,11 +18,11 @@
 	</p>	
 	
 	<p>
-	<label for="date">개봉년도 : </label><input type="radio" name="searchField" value="searchByDate" id="date">
+	<label for="date">개봉 년도 : </label><input type="radio" name="searchField" value="searchByDate" id="date">
 	<label for="date"><input type="number" name="searchNumByDate"></label><br>
 	</p>	
 	<p>
-	<input type="submit" value="검색">   		<input type="reset" value="내용 지우기">
+	<input type="submit" value="검색">	<input type="reset" value="내용 지우기">
 	</form>
 </body>
 </html>
