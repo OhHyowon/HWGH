@@ -3,7 +3,7 @@
 작성자 :  김경혜
 최초 작성일 : 2017.05.23
 변경이력
--movieAvgScore 변수추가
+-김경혜) movieAvgScore 변수추가 : 2017.05.24수정
 xxx 며칠날 수정
 */
 
@@ -30,8 +30,9 @@ public class Movie implements Serializable {
 	public Movie() {
 	}
 
+
 	public Movie(int movieId, String movieTitle, String movieGenre, String movieDirector, String movieActor,
-			int movieDate, String movieImage, String movieVideo) {
+			int movieDate, String movieImage, String movieVideo, double movieAvgScore) {
 		this.movieId = movieId;
 		this.movieTitle = movieTitle;
 		this.movieGenre = movieGenre;
@@ -40,7 +41,19 @@ public class Movie implements Serializable {
 		this.movieDate = movieDate;
 		this.movieImage = movieImage;
 		this.movieVideo = movieVideo;
+		this.movieAvgScore = movieAvgScore;
 	}
+
+
+	public double getMovieAvgScore() {
+		return movieAvgScore;
+	}
+
+
+	public void setMovieAvgScore(double movieAvgScore) {
+		this.movieAvgScore = movieAvgScore;
+	}
+
 
 	public int getMovieId() {
 		return movieId;
@@ -106,11 +119,24 @@ public class Movie implements Serializable {
 		this.movieVideo = movieVideo;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", movieGenre=" + movieGenre
+				+ ", movieDirector=" + movieDirector + ", movieActor=" + movieActor + ", movieDate=" + movieDate
+				+ ", movieImage=" + movieImage + ", movieVideo=" + movieVideo + ", movieAvgScore=" + movieAvgScore
+				+ "]";
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((movieActor == null) ? 0 : movieActor.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(movieAvgScore);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + movieDate;
 		result = prime * result + ((movieDirector == null) ? 0 : movieDirector.hashCode());
 		result = prime * result + ((movieGenre == null) ? 0 : movieGenre.hashCode());
@@ -120,6 +146,7 @@ public class Movie implements Serializable {
 		result = prime * result + ((movieVideo == null) ? 0 : movieVideo.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -134,6 +161,8 @@ public class Movie implements Serializable {
 			if (other.movieActor != null)
 				return false;
 		} else if (!movieActor.equals(other.movieActor))
+			return false;
+		if (Double.doubleToLongBits(movieAvgScore) != Double.doubleToLongBits(other.movieAvgScore))
 			return false;
 		if (movieDate != other.movieDate)
 			return false;
@@ -167,11 +196,6 @@ public class Movie implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", movieGenre=" + movieGenre
-				+ ", movieDirector=" + movieDirector + ", movieActor=" + movieActor + ", movieDate=" + movieDate
-				+ ", movieImage=" + movieImage + ", movieVideo=" + movieVideo + "]";
-	}
+	
 
 }// end of class

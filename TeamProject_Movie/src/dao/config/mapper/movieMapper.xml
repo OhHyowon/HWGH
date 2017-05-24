@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- 
-/**
-설명
-작성자 :  김경혜,오효원
-최초 작성일 : 2017.05.23
-**평균평점 수정필요.
-변경이력
-xxx 며칠날 수정
-*/
- -->
+<!-- /** 설명 작성자 : 김경혜,오효원 최초 작성일 : 2017.05.23 **평균평점 수정필요. 변경이력 xxx 며칠날 수정 
+-김경혜) 평균평점 수정 : 2017.05.24수정
+	*/ -->
 <mapper namespace="dao.config.mapper.movieMapper">
 	<sql id="select-all-sql">
 		SELECT movie_id,
@@ -39,6 +32,9 @@ xxx 며칠날 수정
 		<result column="movie_image" property="movieImage" />
 		<result column="movie_video" property="movieVideo" />
 	</resultMap>
+	<resultMap type="movie" id="movie-join-resultmap" extends="movie-resultmap">
+		<result column="movie_avg_score" property="movieAvgScore"/>
+	</resultMap>
 	<resultMap type="movie" id="movie-part-resultmap">
 		<id column="movie_id" property="movieId" />
 		<result column="movie_title" property="movieTitle" />
@@ -67,17 +63,24 @@ xxx 며칠날 수정
 	<select id="selectMovieByGenre" parameterType="string"
 		resultMap="movie-part-resultmap">
 		<include refid="select-part-sql" />
-		WHERE movie_genre LIKE '%'||#{value}||'%' 
+		WHERE movie_genre LIKE '%'||#{value}||'%'
 	</select>
 
 	<!-- 개봉년도로 조회 -->
-	<select id="selectMovieByDate" parameterType="_int" resultMap="movie-part-resultmap">
-	<include refid="select-part-sql"/>
-	WHERE movie_date=#{value}
+	<select id="selectMovieByDate" parameterType="_int"
+		resultMap="movie-part-resultmap">
+		<include refid="select-part-sql" />
+		WHERE movie_date=#{value}
 	</select>
 
 	<!-- 평균평점 조회 --> <!-- 수정 필요 -->
-	<select id="movieAvgScore" parameterType="_int" resultMap="movie-resultmap">
+	<select id="movieAvgScore" parameterType="_int" resultMap="movie-join-resultmap">
+		SELECT m.movie_id, b.movie_avg_score
+		FROM movie m,(
+			SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score
+			FROM board 
+			GROUP BY movie_id) b 
+		WHERE m.movie_id=b.movie_id(+) AND m.movie_id=#{value}
 	</select>
-	
+
 </mapper>

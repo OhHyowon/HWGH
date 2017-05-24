@@ -3,6 +3,7 @@
 작성자 :  김경혜
 최초 작성일 : 2017.05.23
 변경이력
+-김경혜) movieAvgScore메소드 return 타입 변경) double -> Movie객체  : 2017.05.24수정
 xxx 며칠날 수정
 */
 package service;
@@ -56,9 +57,9 @@ public interface MovieService {
 	/**
 	 * 저장된 영화중 매개변수로 받은 ID의 영화 평점평균 값을 리턴.
 	 * @param movieId : 찾을 영화 ID
-	 * @return 조회한 영화 평점평균을 리턴(소숫점 첫째자리까지). 단 찾는 ID의 영화의 평점이 등록되어 있지않으면 null을 리턴.
+	 * @return 조회한 영화 평점평균(소숫점 첫째자리까지)을 포함한 정보를 리턴. 단 찾는 ID의 영화의 평점이 등록되어 있지않으면 0.0을 리턴.
 	 * @throws SQLException
 	 */
-	double movieAvgScore(int movieId) throws SQLException;
+	Movie movieAvgScore(int movieId) throws SQLException;
 
 }

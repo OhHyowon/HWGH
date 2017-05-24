@@ -5,6 +5,7 @@
 최초 작성일 : 2017.05.23
 **평균평점 수정필요.
 변경이력
+-김경혜) movieAvgScore메소드 return 타입 변경) double -> Movie객체  : 2017.05.24수정
 
 */
 package service.impl;
@@ -43,7 +44,7 @@ public class MovieServiceImpl implements MovieService {
 
 	List<Movie> movieList = null;
 	Movie movie = null;
-	double avgScore = 0.0;
+	//double avgScore = 0.0;
 
 	@Override
 	public List<Movie> getMovieList() throws SQLException {
@@ -120,18 +121,22 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public double movieAvgScore(int movieId) throws SQLException {
+	public Movie movieAvgScore(int movieId) throws SQLException {
 		SqlSession session = null;
 		
 		try {
 			session = factory.openSession();
-			avgScore = dao.movieAvgScore(session, movieId);
+			movie = dao.movieAvgScore(session, movieId);
+			//double avgScore=movie.getMovieAvgScore();
+			movie.setMovieAvgScore(Math.round(movie.getMovieAvgScore()*10)/10.0);
+//			System.out.println(avgScore);
+//			System.out.println(Math.round(avgScore*10)/10.0);
 			session.commit();
 		} finally {
 			session.close();
 		}
 		
-		return avgScore;
+		return movie;
 	}
 
 }

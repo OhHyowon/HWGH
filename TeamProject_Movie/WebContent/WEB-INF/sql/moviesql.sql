@@ -93,9 +93,18 @@ WHERE movie_date=2016
 --조인쿼리문(영화별 평점평균)
 --매개변수로 받은 영화ID와 일치하는 평균평점을 조회하는 메소드.
 --double movieAverageScore(Connection conn, int movieId) throws SQLException;
-SELECT m.movie_id, b.s/b.c 
+SELECT m.movie_id, b.movie_avg_score
 FROM movie m,(
-	SELECT movie_id, sum(board_score) s, count(board_score) c
+	SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score
+	FROM board 
+	GROUP BY movie_id) b 
+WHERE m.movie_id=b.movie_id(+) AND m.movie_id=7
+
+
+--(전체)영화별 평점평균 조회
+SELECT m.movie_id, b.movie_avg_score
+FROM movie m,(
+	SELECT movie_id, sum(board_score)/count(board_score) movie_avg_score
 	FROM board 
 	GROUP BY movie_id) b 
 WHERE m.movie_id=b.movie_id(+)
